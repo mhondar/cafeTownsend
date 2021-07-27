@@ -1,1 +1,4 @@
 .DS_Store
+features/screenshots
+features/reports/report_builder
+features/reports/json/*.json
