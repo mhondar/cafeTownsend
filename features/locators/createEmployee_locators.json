@@ -1,0 +1,11 @@
+{
+    "employeeEditForm": "//div[@class=\"employee-edit active\"]", 
+    "firstNameInput": "//span[contains(text(), \"First name:\")]/following-sibling::input", 
+    "lastNameInput": "//span[contains(text(), \"Last name:\")]/following-sibling::input",
+    "emailInput": "//span[contains(text(), \"e-Mail: \")]/following-sibling::input",
+    "startDateInput": "//span[contains(text(), \"Start date:\")]/following-sibling::input", 
+    "savebutton": "//button[@type=\"submit\"]",
+    "cancelButoon": "//button[contains(text(), \"Cancel\")]",
+    "cancelButoonTop": "//a[@class=\"subButton bCancel\"]", 
+    "deleteButoon": "//button[contains(text(), \"Delete\")]"
+}

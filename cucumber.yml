@@ -1,0 +1,8 @@
+wip_ff: --tags @wip BROWSER=firefox REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=false
+wip_ch: --tags @wip BROWSER=chrome REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=false
+wip_ie: --tags @wip BROWSER=ie REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=false
+wip_sf: --tags @wip BROWSER=safari REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=false
+wip_ff_remote: --tags @wip BROWSER=RemoteFirefox REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=true
+wip_ch_remote: --tags @wip BROWSER=RemoteChrome REPORT=false PROJECT=WIP SCREENSHOT=false CLOSE=true
+wip_ff_report: --tags @wip BROWSER=firefox SCREENSHOT=true ATTACH=true REPORT=true PROJECT=WIP CLOSE=true --expand --format json --out ./features/reports/json/report_firefox_wip_<%= Time.now.strftime("%Y-%m-%d_%H.%M.%S") %>.json
+wip_ch_report: --tags @wip BROWSER=chrome SCREENSHOT=true ATTACH=true REPORT=true PROJECT=WIP CLOSE=true --expand --format json --out ./features/reports/json/report_chrome_wip_<%= Time.now.strftime("%Y-%m-%d_%H.%M.%S") %>.json

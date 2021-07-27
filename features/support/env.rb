@@ -22,11 +22,34 @@ def init_global_var
     $tools.ask_and_create_directory("features/reports/report_builder")
 end
 
+def get_driver
+    $browser = ENV['BROWSER']
+    case $browser
+        when "safari"
+            return  Watir::Browser.new :safari, technology_preview: true
+        when "firefox"
+            return  Watir::Browser.new :firefox
+        when "chrome"
+            return  Watir::Browser.new :chrome , options: {options: {detach: true}}
+        when "ie"
+            return  Watir::Browser.new :ie
+        when "RemoteFirefox" 
+            return Watir::Browser.new :firefox, {takesScreenshot: true, acceptInsecureCerts: false , timeout: 120, url: "http://0.0.0.0:4444/wd/hub"}
+        when "RemoteChrome"
+            return  Watir::Browser.new :chrome, {takesScreenshot: true, acceptInsecureCerts: false , timeout: 120, url: "http://0.0.0.0:4444/wd/hub"} 
+    end
+end
+
 Before do
     init_global_var
     $driver = get_driver
-    Watir.default_timeout = 60
+    Watir.default_timeout = 10
     $driver.driver.manage.window.maximize
+end
+
+def atash_images
+    encoded_img = $driver.screenshot.base64
+    embed("data:image/png;base64,#{encoded_img}",'image/png')
 end
 
 After do |scenario|
@@ -48,21 +71,6 @@ After do |scenario|
     end
 end
 
-at_exit do
-    puts "Exit"
-    puts ENV['REPORT']
-    if ENV['REPORT'] == "true"
-        puts "report"
-        generate_report_builder
-        FileUtils.rm_rf(Dir.glob('features/reports/json/*'))
-    end  
-end
-
-def atash_images
-    encoded_img = $driver.screenshot.base64
-    embed("data:image/png;base64,#{encoded_img}",'image/png')
-end
-
 def generate_report_builder
     puts "Generate Report Builder"
     unless File.directory?('features/reports/report_builder')
@@ -82,21 +90,12 @@ def generate_report_builder
       ReportBuilder.build_report
 end
 
-def get_driver
-    $browser = ENV['BROWSER']
-    case $browser
-        when "safari"
-            return  Watir::Browser.new :safari, technology_preview: true
-        when "firefox"
-            return  Watir::Browser.new :firefox
-        when "chrome"
-            return  Watir::Browser.new :chrome , options: {options: {detach: true}}
-        when "ie"
-            return  Watir::Browser.new :ie
-        when "RemoteFirefox" 
-            return Watir::Browser.new :firefox, {takesScreenshot: true, acceptInsecureCerts: false , timeout: 120, url: "http://0.0.0.0:4444/wd/hub"}
-        when "RemoteChrome"
-            return  Watir::Browser.new :chrome, {takesScreenshot: true, acceptInsecureCerts: false , timeout: 120, url: "http://0.0.0.0:4444/wd/hub"} 
-    end
+at_exit do
+    puts "Exit"
+    puts ENV['REPORT']
+    if ENV['REPORT'] == "true"
+        puts "report"
+        generate_report_builder
+        FileUtils.rm_rf(Dir.glob('features/reports/json/*'))
+    end  
 end
-  

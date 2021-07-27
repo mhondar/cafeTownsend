@@ -1,0 +1,11 @@
+{
+    "mhondar": {
+        "username": "mhondar@gmail.com",
+        "password": "angular"
+    },
+    "mhondar_fail": {
+        "username": "mhondar@gmail.com",
+        "password": "wrongpassword"
+    }
+    
+}

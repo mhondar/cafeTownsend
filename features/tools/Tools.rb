@@ -2,7 +2,7 @@ require 'date'
 
 class Tools
    
-    def visit_page(url)
+    def open_page(url)
         count = 0
         $driver.goto url
         begin
@@ -18,14 +18,42 @@ class Tools
         end
     end
 
-    def back
-        $driver.back
+    def wait_element(element)
+        element.wait_until(&:present?)
     end
-    
+
+    def test_fail(menssage)
+        $tools.save_screenshot("Fail", "features/screenshots/fails/")
+        fail(menssage)
+    end
+
     def click(element)
         wait_element(element)
         element.click
     end
+
+    def doubleClick(element)
+        wait_element(element)
+        element.double_click
+    end
+
+    def clear_input(element)
+        element.double_click
+        $driver.send_keys :delete
+    end
+
+    def insert_text(element, text)
+        wait_element(element)
+        element.send_keys text
+    end
+    
+
+
+    def back
+        $driver.back
+    end
+    
+
 
     def hover(element)
         wait_element(element)
@@ -34,9 +62,7 @@ class Tools
         end
     end
 
-    def wait_element(element)
-        element.wait_until(&:present?)
-    end
+
 
     def wait_after_timeout(element)
         element.wait_element_timeout(element, 30)
@@ -46,11 +72,7 @@ class Tools
         element.wait_until(timeout: time, &:present?)
     end
 
-    def insert_text(element, text)
-        wait_element(element)
-        element.send_keys text
-    end
-    
+
     def scroll(element)
         element.scroll_into_view
     end
@@ -60,10 +82,7 @@ class Tools
         element.wait_until(&:present?)
     end
 
-    def clear_input(element)
-        element.double_click
-        $driver.send_keys :delete
-    end
+
 
     def verify_element(element)
         if element.present?
@@ -116,13 +135,13 @@ class Tools
        list_opcions.options.select(&:enabled?).sample.click
     end
 
-    def save_screenshot(step, ruta)
+    def save_screenshot(step, path)
         if $screenshots == "true"
             puts "Save Screenshot #{step}"
-            ask_and_create_directory(ruta)
+            ask_and_create_directory(path)
             filename = $name + "_" + step + "_" + $browser + "_" + filename_time
-            path = ruta + filename + ".png"
-            $driver.screenshot.save(path)
+            directory = path + filename + ".png"
+            $driver.screenshot.save(directory)
         end
     end
 
@@ -142,9 +161,6 @@ class Tools
         return file_name
     end
 
-    def test_fail(menssage)
-        $tools.save_screenshot("Fail", "features/screenshots/fails/")
-        fail(menssage)
-    end
+
 
 end

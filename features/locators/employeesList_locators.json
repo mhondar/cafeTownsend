@@ -1,0 +1,8 @@
+{
+    "sesionUser": "//p[@class=\"session-user ng-binding\"]",
+    "employeeList": "//ul[@id=\"employee-list\"]", 
+    "addButton": "//a[@id=\"bAdd\"]", 
+    "editButton": "//a[@id=\"bEdit\"]",
+    "deleteButton": "//a[@id=\"bDelete\"]", 
+    "logoutButoon": "//p[@class=\"main-button logout\"]"
+}
