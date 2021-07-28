@@ -44,7 +44,7 @@ Before do
     init_global_var
     $driver = get_driver
     Watir.default_timeout = 10
-    # $driver.driver.manage.window.maximize
+    $driver.driver.manage.window.maximize
 end
 
 def atash_images
