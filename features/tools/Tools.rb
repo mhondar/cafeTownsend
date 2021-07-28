@@ -47,7 +47,13 @@ class Tools
         element.send_keys text
     end
     
-
+    def verify_element(element)
+        if element.present?
+            return true
+        else
+            return false
+        end
+    end
 
     def back
         $driver.back
@@ -83,14 +89,6 @@ class Tools
     end
 
 
-
-    def verify_element(element)
-        if element.present?
-            return true
-        else
-            return false
-        end
-    end
 
     def insert_text_wait_tab(text, elem_textfield)
         click(elem_textfield)

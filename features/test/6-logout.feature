@@ -1,6 +1,6 @@
 Feature: Logout
 
-    @wip
+    @automatic
     Scenario: Verify Logout
         Given Open website "url"
         And Verify cafeTownsend open
