@@ -1,4 +1,5 @@
-Given('Open website {string}') do |url|
+Given('Open website {string} {string}') do |url, tc|
+    $name = tc
     @loginPage = LoginPage.new
     @loginPage.open_page(url)
   end

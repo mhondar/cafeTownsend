@@ -2,7 +2,7 @@ Feature: Edit Employee
 
     @automatic
     Scenario Outline: Verify Edit an Employee by Edit Button
-        Given Open website "url"
+        Given Open website "url" "TC-14"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button
@@ -22,7 +22,7 @@ Feature: Edit Employee
             | "Thomas Burleson" | "Marisleydi" | "Hondar" | "mhondar@hotmail.com" | "07/27/2021" |
     @automatic
     Scenario Outline: Verify Edit an Employee by Double Click on Employee
-        Given Open website "url"
+        Given Open website "url" "TC-15"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button
@@ -42,7 +42,7 @@ Feature: Edit Employee
 
     @automatic
     Scenario Outline: Verify Cancel Edit an Employee don´t make changes
-        Given Open website "url"
+        Given Open website "url" "TC-16"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button

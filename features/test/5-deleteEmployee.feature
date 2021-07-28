@@ -2,7 +2,7 @@ Feature: Delete Employee
 
     @automatic
     Scenario: Verify Delete Employee from Edit page
-        Given Open website "url"
+        Given Open website "url" "TC-17"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button
@@ -15,7 +15,7 @@ Feature: Delete Employee
 
     @automatic
     Scenario: Verify Delete Employee from Employee List
-        Given Open website "url"
+        Given Open website "url" "TC-18"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button

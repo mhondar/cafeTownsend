@@ -88,51 +88,6 @@ class Tools
         element.wait_until(&:present?)
     end
 
-
-
-    def insert_text_wait_tab(text, elem_textfield)
-        click(elem_textfield)
-        elem_textfield.send_keys text
-        sleep 10
-        $driver.send_keys :tab
-        sleep 2
-    end
-
-    def select_option(element,option)
-        wait_element(element)
-        element.select(option)
-    end
-
-    def select_value(element,value)
-        wait_element(element)
-        element.select_value(value)
-    end
-
-    def wait_enabled(element)
-        while !element.enabled?
-            sleep 1
-        end
-    end
-
-    def get_attribute_value(element,attribute)
-        element.attribute_value(attribute)
-    end
-
-    def select_checkbox(element)
-        wait_element(element)
-        element.set
-    end
-
-    def unselect_checkbox(element)
-        wait_element(element)
-        element.clear
-    end
-
-    def select_random_select_option(list_options)
-       wait_element(list_options)
-       list_opcions.options.select(&:enabled?).sample.click
-    end
-
     def save_screenshot(step, path)
         if $screenshots == "true"
             puts "Save Screenshot #{step}"

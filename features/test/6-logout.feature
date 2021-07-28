@@ -2,7 +2,7 @@ Feature: Logout
 
     @automatic
     Scenario: Verify Logout
-        Given Open website "url"
+        Given Open website "url" "TC-19"
         And Verify cafeTownsend open
         When I put my credencials "mhondar"
         And I click on Login button
