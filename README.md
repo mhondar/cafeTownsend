@@ -57,35 +57,59 @@ Identically, Cucumber is integrated and supported by many frameworks like Watir,
 
 ● Install requiered gems with Command: bundle install
 
+## Project Structure 
+
+● feature/data: JSON files where is located all test data about URL and users.
+
+● feature/locators: JSON files where is located all HTML locators used to locate elements on web page.
+
+● feature/page_objects: .rb files where is implemented the automatizations of the system pages using POM pattern
+
+● feature/reports: JSON and HTML files. Contains result reports after test executions.
+
+● feature/screenshots: JPEG files with screenshots of the last test case system screenshot. Is created when start the first execution because is seted in .gitignore file.
+
+● feature/step_definitions: In cucumber, each step in the scenario would look for matching step definition. A step definition is a Ruby method with an expression that links to one or more gherkins steps.
+
+● feature/support: Contains env.rb file with the driver initialization and other importants funtionalities.
+
+● feature/test: Contains features file with test cases scenarios whriten in Gerkin language.
+
+● feature/tools: A Tool class is used to simplify the functionalities of watir webdriver.
+
+● .gitignore: Contains the files that we won´t upload to git repository
+
+● cucumber.yml: It has the cucumber profile to be execute.
+
+● docker-compose: It has the docker configuration to download docker images and run the project on it.
+
+● Gemfile: It has the gems used on this project and can be install with bundle.
 ## Gherkin Keywords
 
-# Feature:
+### Feature:
 Furthermore, the Gherkin documents will start with Keyword called “Feature”. In this section, we would describe the functionality of software feature. The description in Feature has no special meaning, it will hold only the important aspects of software features. And, it will not have any impact on run-time and the descriptions can be ignored.
 
-# Background:
+### Background:
 In general, “Background” keyword is used to repeat the same set of steps before starting all Scenario in a feature and after the Before hooks.
 In feature file, we write the keyword Background before the first Scenario. Here the feature file contains only one set of Background steps.
 
-# Scenario:
+### Scenario:
 A scenario is one of the core of Gherkin structures. Every scenario starts with the keyword Scenario followed by an optional scenario title. It describes the specific test of the software function. It contains one or more steps. Cucumber executes each step but once at a time.
 
-# Given:
+### Given:
 Given step describes the initial state of the system. When cucumber executes the step of Given, it will put the system in a known state before user interacting the system.
 
-# When:
+### When:
 When is used to describe an action or event.
 
-# Then:
+### Then:
 Then is used to describe the expected result or outcome. Then step is use assertion to compare the actual outcome and expected outcome.
 
-# And & But:
+### And & But:
 Can be used when we use multiple Given, When and Then statements.
 
-# Feature file
+### Feature file
 In cucumber, all test cases are written in feature files. Feature file will have the extension of .feature. The first line of the feature file starts with keyword Feature. Plus, Every feature file contains single feature. Now, the feature contains one or more Scenarios and each scenario contains a list of steps. Likewise, Feature keyword used to describe the functionality of test.
-
-# Step Definition
-In cucumber, each step in the scenario would look for matching step definition. A step definition is a Ruby method with an expression that links to one or more gherkins steps.
 
 ## How execute test cases
 
