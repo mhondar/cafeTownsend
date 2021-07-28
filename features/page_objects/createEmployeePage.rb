@@ -39,7 +39,9 @@ class CreateEmployeePage
     end
 
     def inputStartDate(startDate)
+        sleep 1
         5.times { $tools.clear_input(@startDateInput) }
+        sleep 1
         $tools.insert_text(@startDateInput, startDate)
     end
 

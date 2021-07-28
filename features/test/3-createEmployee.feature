@@ -1,6 +1,6 @@
 Feature: Create Employee
 
-    @automatic
+    @automatic @wip
     Scenario Outline: Verify Create an Employee
         Given Open website "url" "TC-05"
         And Verify cafeTownsend open
